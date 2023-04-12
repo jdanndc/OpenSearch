@@ -290,7 +290,7 @@ Right now the directory contains the following.
 * Tests that form a cluster made up of multiple versions of OpenSearch like full cluster restart, rolling restarts, and mixed version tests.
 * Tests that test the OpenSearch clients in "interesting" places like the `wildfly` project.
 * Tests that test OpenSearch in funny configurations like with ingest disabled.
-* Tests that need to do strange things like install plugins that thrown uncaught `Throwable`s or add a shutdown hook.
+* Tests that need to do strange things like install plugins that throw uncaught `Throwable`s or add a shutdown hook.
 
 But we're not convinced that all of these things *belong* in the qa directory. We're fairly sure that tests that require multiple modules or plugins to work should just pick a "home" plugin. We're fairly sure that the multi-version tests *do* belong in qa. Beyond that, we're not sure. If you want to add a new qa project, open a PR and be ready to discuss options.
 
@@ -362,7 +362,7 @@ Dependencies that are used as compile and runtime dependencies of a project and 
 
 #### runtimeOnly
 
-Dependencies that not on the classpath at compile time but are on the classpath at runtime. We mostly use this configuration to make sure that we do not accidentally compile against dependencies of our dependencies also known as "transitive" dependencies".
+Dependencies that are not on the classpath at compile time but are on the classpath at runtime. We mostly use this configuration to make sure that we do not accidentally compile against dependencies of our dependencies also known as "transitive" dependencies".
 
 #### compileOnly
 
@@ -385,7 +385,7 @@ The Distribution Download plugin downloads the latest version of OpenSearch by d
 
 ### Creating fat-JAR of a Module
 
-A fat-JAR (or an uber-JAR) is the JAR, which contains classes from all the libraries, on which your project depends and, of course, the classes of current project.
+A fat-JAR (or an uber-JAR) is a JAR, which contains classes from all the libraries, on which your project depends and, of course, the classes of current project.
 
 There might be cases where a developer would like to add some custom logic to the code of a module (or multiple modules) and generate a fat-JAR that can be directly used by the dependency management tool. For example, in [#3665](https://github.com/opensearch-project/OpenSearch/pull/3665) a developer wanted to provide a tentative patch as a fat-JAR to a consumer for changes made in the high level REST client.
 
